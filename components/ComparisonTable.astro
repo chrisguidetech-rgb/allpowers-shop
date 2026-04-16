@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+const products = await getCollection('products');
+products.sort((a, b) => a.data.order - b.data.order);
+---
+<div class="overflow-x-auto my-12 hidden md:block rounded-xl border border-gray-200">
+  <table class="w-full text-left border-collapse bg-white">
+    <thead>
+      <tr class="bg-gray-50 border-b border-gray-200 text-sm uppercase tracking-wide">
+        <th class="p-5 font-bold text-gray-900">Model</th>
+        <th class="p-5 font-bold text-gray-900">Capacity</th>
+        <th class="p-5 font-bold text-gray-900">Output</th>
+        <th class="p-5 font-bold text-gray-900">Weight</th>
+        <th class="p-5 font-bold text-gray-900">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {products.map(p => (
+        <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+          <td class="p-5 font-bold text-gray-900">{p.data.name}</td>
+          <td class="p-5 text-gray-600 font-medium">{p.data.batteryCapacity}</td>
+          <td class="p-5 text-gray-600 font-medium">{p.data.outputWatts}</td>
+          <td class="p-5 text-gray-600">{p.data.weight}</td>
+          <td class="p-5">
+            <a href={p.data.affiliateUrl} target="_blank" rel="noopener" class="text-brand font-bold hover:underline">Get Deal →</a>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
