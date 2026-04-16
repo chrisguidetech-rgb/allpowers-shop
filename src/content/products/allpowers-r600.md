@@ -1,6 +1,6 @@
 ---
 name: "ALLPOWERS R600 Portable Power Station"
-image: "/images/r600.webp"
+image: "/images/r600.png"
 affiliateUrl: "https://iallpowers.eu/products/allpowers-r600-portable-power-station?ref=Allpowers-compact-energy&utm_source=aff"
 couponCode: "AFFCT10"
 shortDescription: "Ultra-fast charging power station, perfect for camping and sudden blackouts."
