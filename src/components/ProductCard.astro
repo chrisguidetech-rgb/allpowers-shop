@@ -8,9 +8,8 @@ const { data } = product;
       Most Popular
     </div>
   )}
-  <div class="aspect-square bg-gray-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center p-4">
-    <!-- Image placeholder -->
-    <div class="w-full h-full bg-gray-200 rounded object-cover flex items-center justify-center text-gray-400 text-sm">Product Image</div>
+  <div class="aspect-square bg-white rounded-xl mb-6 overflow-hidden flex items-center justify-center p-2">
+    <img src={data.image} alt={data.name} class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
   </div>
   <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight">{data.name}</h3>
   <p class="text-sm text-gray-500 mb-4 flex-grow">{data.shortDescription}</p>
