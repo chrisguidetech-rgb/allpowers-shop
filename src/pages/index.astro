@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import DiscountBanner from '../components/DiscountBanner.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { getCollection } from 'astro:content';
+
+const products = await getCollection('products');
+products.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title="ALLPOWERS Power Stations & Solar Generators - Best Deals" description="Discover premium portable power stations by ALLPOWERS. Get an exclusive 16% total discount (6% via link + 10% with code AFFCT10).">
+	<HeroSection />
+	
+	<section id="products" class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Featured Power Stations</h2>
+				<p class="text-lg text-gray-600">Find the perfect reliable power solution for your needs.</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{products.map((product) => (
+					<ProductCard product={product} />
+				))}
+			</div>
+		</div>
+	</section>
+
+	<DiscountBanner />
+
+	<section id="compare" class="max-w-7xl mx-auto px-4 py-20 bg-white">
+		<h2 class="text-3xl font-extrabold text-center mb-2">Compare Models</h2>
+		<p class="text-center text-gray-500 mb-10">Find out which station's capacity matches your goals.</p>
+		<ComparisonTable />
+	</section>
+
+	<FAQSection />
+
+	<section class="py-24 bg-brand text-white text-center px-4">
+		<h2 class="text-4xl font-black mb-6">Ready for Endless Power?</h2>
+		<p class="text-xl mb-10 text-white/90">Don't forget to use code <span class="bg-white text-brand px-2 py-1 rounded font-bold uppercase shadow-sm">AFFCT10</span> at checkout.</p>
+		<a href="https://iallpowers.eu/?ref=Allpowers-compact-energy&utm_source=aff" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-brand font-extrabold text-lg px-10 py-5 rounded-full shadow-2xl hover:scale-105 transition-transform">
+			Shop Official Store Now
+		</a>
+	</section>
+</Layout>
