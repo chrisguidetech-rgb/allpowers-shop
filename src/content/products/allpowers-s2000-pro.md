@@ -1,6 +1,6 @@
 ---
 name: "ALLPOWERS S2000 Pro Power Station"
-image: "/images/s2000-pro.webp"
+image: "/images/s2000.png"
 affiliateUrl: "https://iallpowers.eu/products/s2000-pro?ref=Allpowers-compact-energy&utm_source=aff"
 couponCode: "AFFCT10"
 shortDescription: "High-capacity beast designed specifically for heavy-duty tools and complete home backup."
