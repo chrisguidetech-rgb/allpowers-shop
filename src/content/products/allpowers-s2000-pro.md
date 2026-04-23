@@ -1,6 +1,6 @@
 ---
 name: ALLPOWERS S2000 Pro Power Station
-image: 'http://iallpowers.eu/cdn/shop/files/180X180_1.jpg'
+image: "/images/s2000.png" 
 affiliateUrl: >-
   https://iallpowers.eu/products/s2000-pro?ref=Allpowers-compact-energy&utm_source=aff
 couponCode: AFFCT10
