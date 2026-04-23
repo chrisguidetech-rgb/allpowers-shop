@@ -15,11 +15,6 @@ async function scrapeProductData(url) {
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    let image = $('meta[property="og:image"]').attr('content') || $('meta[name="og:image"]').attr('content');
-    if (!image) image = $('meta[property="og:image:secure_url"]').attr('content');
-    if (image && image.startsWith('//')) image = 'https:' + image;
-    if (image && image.includes('?')) image = image.split('?')[0];
-
     let price = null;
     let originalPrice = null;
 
@@ -42,7 +37,7 @@ async function scrapeProductData(url) {
         if (metaPrice) price = parseFloat(metaPrice);
     }
 
-    return { image, price, originalPrice };
+    return { price, originalPrice };
   } catch (error) {
     console.error(`Failed to fetch from ${url}:`, error.message);
     return null;
@@ -65,10 +60,8 @@ async function main() {
 
     if (scrapedData) {
       let updated = false;
-      if (scrapedData.image && parsed.data.image !== scrapedData.image) {
-        parsed.data.image = scrapedData.image;
-        updated = true;
-      }
+      
+      // ΜΟΝΟ Η ΤΙΜΗ ΑΝΑΝΕΩΝΕΤΑΙ (Η εικόνα πλέον ΔΕΝ αγγίζεται!)
       if (scrapedData.price && parsed.data.price !== `€${scrapedData.price}`) {
         parsed.data.price = `€${scrapedData.price}`;
         updated = true;
